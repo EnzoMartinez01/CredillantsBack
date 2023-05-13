@@ -4,7 +4,7 @@ package com.example.credillants.credillants.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="")
+@Table(name="llantas")
 public class LlantasEntity {
 	
 	@Id

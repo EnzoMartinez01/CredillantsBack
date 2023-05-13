@@ -3,7 +3,7 @@ package com.example.credillants.credillants.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="")
+@Table(name="userrol")
 public class UsuarioRolEntity {
 	
 	@Id
