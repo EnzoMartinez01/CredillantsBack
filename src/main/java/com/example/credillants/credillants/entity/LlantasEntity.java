@@ -1,8 +1,5 @@
 package com.example.credillants.credillants.entity;
 
-import java.util.*;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.*;
 
@@ -49,44 +46,43 @@ public class LlantasEntity {
 		this.precio = precio;
 	}
 	@ManyToOne (fetch = FetchType.EAGER)
-	private TipoEntity idTipo;
+	private TipoEntity tipo;
 	
 	@ManyToOne (fetch = FetchType.EAGER)
-	private MarcaEntity idMarca;
+	private MarcaEntity marca;
 
-	public TipoEntity getIdTipo() {
-		return idTipo;
+	public TipoEntity getTipo() {
+		return tipo;
 	}
-	public void setIdTipo(TipoEntity idTipo) {
-		this.idTipo = idTipo;
+	public void setTipo(TipoEntity tipo) {
+		this.tipo = tipo;
 	}
-	public MarcaEntity getIdMarca() {
-		return idMarca;
+	public MarcaEntity getMarca() {
+		return marca;
 	}
-	public void setIdMarca(MarcaEntity idMarca) {
-		this.idMarca = idMarca;
+	public void setMarca(MarcaEntity marca) {
+		this.marca = marca;
 	}
 	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "llantatipo")
-	@JsonIgnore
-	private Set<LlantaTipoEntity> llantatipoentity = new HashSet<>();
-
-	public Set<LlantaTipoEntity> getLlantatipoentity() {
-		return llantatipoentity;
-	}
-	public void setLlantatipoentity(Set<LlantaTipoEntity> llantatipoentity) {
-		this.llantatipoentity = llantatipoentity;
-	}
 	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "llantamarca")
-	@JsonIgnore
-	private Set<LlantaMarcaEntity> llantamarcaentity = new HashSet<>();
-
-	public Set<LlantaMarcaEntity> getLlantamarcaentity() {
-		return llantamarcaentity;
-	}
-	public void setLlantamarcaentity(Set<LlantaMarcaEntity> llantamarcaentity) {
-		this.llantamarcaentity = llantamarcaentity;
-	}
-	
+	/*
+	 * @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy =
+	 * "llantatipo")
+	 * 
+	 * @JsonIgnore private Set<LlantaTipoEntity> llantatipoentity = new HashSet<>();
+	 * 
+	 * public Set<LlantaTipoEntity> getLlantatipoentity() { return llantatipoentity;
+	 * } public void setLlantatipoentity(Set<LlantaTipoEntity> llantatipoentity) {
+	 * this.llantatipoentity = llantatipoentity; }
+	 * 
+	 * @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy =
+	 * "llantamarca")
+	 * 
+	 * @JsonIgnore private Set<LlantaMarcaEntity> llantamarcaentity = new
+	 * HashSet<>();
+	 * 
+	 * public Set<LlantaMarcaEntity> getLlantamarcaentity() { return
+	 * llantamarcaentity; } public void setLlantamarcaentity(Set<LlantaMarcaEntity>
+	 * llantamarcaentity) { this.llantamarcaentity = llantamarcaentity; }
+	 */
 }

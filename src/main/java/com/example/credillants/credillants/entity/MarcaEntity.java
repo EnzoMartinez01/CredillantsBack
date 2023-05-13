@@ -1,7 +1,9 @@
 package com.example.credillants.credillants.entity;
 
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.*;
 
@@ -26,13 +28,15 @@ public class MarcaEntity {
 		this.nombmarca = nombmarca;
 	}
 	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "marcallanta")
-	private Set<LlantaMarcaEntity> llantamarcaentity = new HashSet<>();
+	@OneToMany(mappedBy = "marca", cascade = CascadeType.ALL)
+	@JsonIgnore
+	private Set<LlantasEntity> llantas = new LinkedHashSet<>();
 
-	public Set<LlantaMarcaEntity> getLlantamarcaentity() {
-		return llantamarcaentity;
+	public Set<LlantasEntity> getLlantas() {
+		return llantas;
 	}
-	public void setLlantamarcaentity(Set<LlantaMarcaEntity> llantamarcaentity) {
-		this.llantamarcaentity = llantamarcaentity;
+	public void setLlantas(Set<LlantasEntity> llantas) {
+		this.llantas = llantas;
 	}
+
 }

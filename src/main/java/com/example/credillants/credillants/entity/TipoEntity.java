@@ -2,6 +2,8 @@ package com.example.credillants.credillants.entity;
 
 import java.util.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -27,13 +29,24 @@ public class TipoEntity {
 		this.tipo = tipo;
 	}
 	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "tipollanta")
-	private Set<LlantaTipoEntity> llantatipoentity = new HashSet<>();
+	@OneToMany(mappedBy = "tipo", cascade = CascadeType.ALL)
+	@JsonIgnore
+	private Set<LlantasEntity> llantas = new LinkedHashSet<>();
 
-	public Set<LlantaTipoEntity> getLlantatipoentity() {
-		return llantatipoentity;
+	public Set<LlantasEntity> getLlantas() {
+		return llantas;
 	}
-	public void setLlantatipoentity(Set<LlantaTipoEntity> llantatipoentity) {
-		this.llantatipoentity = llantatipoentity;
+	public void setLlantas(Set<LlantasEntity> llantas) {
+		this.llantas = llantas;
 	}
+	
+	/*
+	 * @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy =
+	 * "tipollanta") private Set<LlantaTipoEntity> llantatipoentity = new
+	 * HashSet<>();
+	 * 
+	 * public Set<LlantaTipoEntity> getLlantatipoentity() { return llantatipoentity;
+	 * } public void setLlantatipoentity(Set<LlantaTipoEntity> llantatipoentity) {
+	 * this.llantatipoentity = llantatipoentity; }
+	 */
 }
